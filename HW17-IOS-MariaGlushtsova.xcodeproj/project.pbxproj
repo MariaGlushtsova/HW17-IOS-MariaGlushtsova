@@ -56,15 +56,39 @@
 		84B957CA2A84074800DA6480 /* HW17-IOS-MariaGlushtsova */ = {
 			isa = PBXGroup;
 			children = (
+				84B957E12A8407B800DA6480 /* Sources */,
+				84B957E02A8407A000DA6480 /* Resources */,
+			);
+			path = "HW17-IOS-MariaGlushtsova";
+			sourceTree = "<group>";
+		};
+		84B957DF2A84078600DA6480 /* App */ = {
+			isa = PBXGroup;
+			children = (
 				84B957CB2A84074800DA6480 /* AppDelegate.swift */,
 				84B957CD2A84074800DA6480 /* SceneDelegate.swift */,
-				84B957CF2A84074800DA6480 /* ViewController.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		84B957E02A8407A000DA6480 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				84B957D12A84074800DA6480 /* Main.storyboard */,
 				84B957D42A84074A00DA6480 /* Assets.xcassets */,
 				84B957D62A84074A00DA6480 /* LaunchScreen.storyboard */,
 				84B957D92A84074A00DA6480 /* Info.plist */,
 			);
-			path = "HW17-IOS-MariaGlushtsova";
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		84B957E12A8407B800DA6480 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				84B957DF2A84078600DA6480 /* App */,
+				84B957CF2A84074800DA6480 /* ViewController.swift */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,12 +312,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "HW17-IOS-MariaGlushtsova/Info.plist";
+				INFOPLIST_FILE = "HW17-IOS-MariaGlushtsova/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -315,12 +340,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "HW17-IOS-MariaGlushtsova/Info.plist";
+				INFOPLIST_FILE = "HW17-IOS-MariaGlushtsova/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
