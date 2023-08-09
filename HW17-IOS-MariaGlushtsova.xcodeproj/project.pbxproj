@@ -14,6 +14,7 @@
 		84B957D52A84074A00DA6480 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84B957D42A84074A00DA6480 /* Assets.xcassets */; };
 		84B957D82A84074A00DA6480 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84B957D62A84074A00DA6480 /* LaunchScreen.storyboard */; };
 		84B957E42A84288F00DA6480 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 84B957E32A84288F00DA6480 /* SnapKit */; };
+		84B957E62A8435A300DA6480 /* String + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B957E52A8435A300DA6480 /* String + Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		84B957D42A84074A00DA6480 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84B957D72A84074A00DA6480 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84B957D92A84074A00DA6480 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84B957E52A8435A300DA6480 /* String + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				84B957E12A8407B800DA6480 /* Sources */,
 				84B957E02A8407A000DA6480 /* Resources */,
+				84B957E72A8435AC00DA6480 /* Extensions */,
 			);
 			path = "HW17-IOS-MariaGlushtsova";
 			sourceTree = "<group>";
@@ -91,6 +94,14 @@
 				84B957CF2A84074800DA6480 /* ViewController.swift */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		84B957E72A8435AC00DA6480 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				84B957E52A8435A300DA6480 /* String + Ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,6 +184,7 @@
 				84B957D02A84074800DA6480 /* ViewController.swift in Sources */,
 				84B957CC2A84074800DA6480 /* AppDelegate.swift in Sources */,
 				84B957CE2A84074800DA6480 /* SceneDelegate.swift in Sources */,
+				84B957E62A8435A300DA6480 /* String + Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
