@@ -15,6 +15,7 @@
 		84B957D82A84074A00DA6480 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84B957D62A84074A00DA6480 /* LaunchScreen.storyboard */; };
 		84B957E42A84288F00DA6480 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 84B957E32A84288F00DA6480 /* SnapKit */; };
 		84B957E62A8435A300DA6480 /* String + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B957E52A8435A300DA6480 /* String + Ext.swift */; };
+		84DB35342A86E19700133497 /* GenerateBruteForce function.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB35332A86E19700133497 /* GenerateBruteForce function.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		84B957D72A84074A00DA6480 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84B957D92A84074A00DA6480 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84B957E52A8435A300DA6480 /* String + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Ext.swift"; sourceTree = "<group>"; };
+		84DB35332A86E19700133497 /* GenerateBruteForce function.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GenerateBruteForce function.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				84B957E52A8435A300DA6480 /* String + Ext.swift */,
+				84DB35332A86E19700133497 /* GenerateBruteForce function.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 			files = (
 				84B957D02A84074800DA6480 /* ViewController.swift in Sources */,
 				84B957CC2A84074800DA6480 /* AppDelegate.swift in Sources */,
+				84DB35342A86E19700133497 /* GenerateBruteForce function.swift in Sources */,
 				84B957CE2A84074800DA6480 /* SceneDelegate.swift in Sources */,
 				84B957E62A8435A300DA6480 /* String + Ext.swift in Sources */,
 			);
