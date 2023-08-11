@@ -33,7 +33,7 @@ class ViewController: UIViewController {
     
     private lazy var passwordField: UITextField = {
         let textField = UITextField()
-        textField.isSecureTextEntry = false
+        textField.isSecureTextEntry = true
         textField.layer.cornerRadius = 20
         textField.textAlignment = .center
         textField.placeholder = "Create password"
@@ -86,8 +86,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setupHierarchy()
         setupLayout()
-
-//        self.bruteForce(passwordToUnlock: passwordField.text ?? String())
     }
     
     // MARK: - Setup
@@ -141,66 +139,47 @@ class ViewController: UIViewController {
     @objc private func breakPassword() {
         stopButtonIsTapped = false
         spinner.startAnimating()
-            bruteForce(passwordToUnlock: passwordField.text ?? String())
-
-//            print(passwordField.text.self ?? String())
-            //        print("Password")
+        bruteForce(passwordToUnlock: passwordField.text ?? String())
     }
     
     @objc private func stopBreakPassword() {
         stopButtonIsTapped = true
-        spinner.stopAnimating()
+        passwordField.isSecureTextEntry = true
         passwordLabel.text = "Пароль не взломан"
-        print("Password not break")
+        spinner.stopAnimating()
     }
     
     func bruteForce(passwordToUnlock: String) {
+        
         let ALLOWED_CHARACTERS:   [String] = String().printable.map { String($0) }
 
         var password: String = ""
 
-        // Will strangely ends at 0000 instead of ~~~
         DispatchQueue.global(qos: .background).async {
             
-            while password != passwordToUnlock { // Increase MAXIMUM_PASSWOR;D_SIZE value for more
+            while password != passwordToUnlock {
+                password = generateBruteForce(password, fromArray: ALLOWED_CHARACTERS)
+                DispatchQueue.main.sync {
+                    self.passwordLabel.text = password
+                }
+                                
                 if self.stopButtonIsTapped == true {
-                    self.passwordLabel.text = "Пароль не взломан"
                     break
                 }
-                password = generateBruteForce(password, fromArray: ALLOWED_CHARACTERS)
-                    //             Your stuff here
-                    print(password)
-                    // Your stuff here
             }
-            print(password)
-//            self.passwordLabel.text = "Пароль \(password) взломан"
+            
+            if self.stopButtonIsTapped == false {
+                DispatchQueue.main.sync {
+                    self.passwordLabel.text = "Пароль \(password) взломан"
+                    self.passwordField.isSecureTextEntry = false
+                    self.spinner.stopAnimating()
+                }
+            } else {
+                DispatchQueue.main.sync {
+                    self.passwordLabel.text = "Пароль не взломан"
+                    self.spinner.stopAnimating()
+                }
+            }
         }
     }
-}
-
-func indexOf(character: Character, _ array: [String]) -> Int {
-    return array.firstIndex(of: String(character))!
-}
-
-func characterAt(index: Int, _ array: [String]) -> Character {
-    return index < array.count ? Character(array[index])
-                               : Character("")
-}
-
-func generateBruteForce(_ string: String, fromArray array: [String]) -> String {
-
-        var str: String = string
-
-        if str.count <= 0 {
-            str.append(characterAt(index: 0, array))
-        }
-        else {
-            str.replace(at: str.count - 1,
-                        with: characterAt(index: (indexOf(character: str.last!, array) + 1) % array.count, array))
-            
-            if indexOf(character: str.last!, array) == 0 {
-                str = String(generateBruteForce(String(str.dropLast()), fromArray: array)) + String(str.last!)
-            }
-        }
-    return str
 }
