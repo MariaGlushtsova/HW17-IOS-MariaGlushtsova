@@ -16,25 +16,18 @@ class ViewController: UIViewController {
     
     private lazy var passwordLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .systemGray
         label.text = ""
-        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.textColor = UIColor(named: "Green")
+        label.font = UIFont.boldSystemFont(ofSize: 40)
         label.textAlignment = .center
-        label.clipsToBounds = true
-        label.layer.cornerRadius = 10
-        label.layer.shadowColor = UIColor.black.cgColor
-        label.layer.shadowOpacity = 0.3
-        label.layer.shadowOffset = .zero
-        label.layer.shadowRadius = 10
-        label.layer.shouldRasterize = true
-        label.layer.rasterizationScale = UIScreen.main.scale
+        label.numberOfLines = 0
         return label
     }()
     
     private lazy var passwordField: UITextField = {
         let textField = UITextField()
         textField.isSecureTextEntry = true
-        textField.layer.cornerRadius = 20
+        textField.font = UIFont.boldSystemFont(ofSize: 25)
         textField.textAlignment = .center
         textField.placeholder = "Create password"
         return textField
@@ -43,7 +36,8 @@ class ViewController: UIViewController {
     private lazy var spinner: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView()
         activityIndicator.center = self.view.center
-        activityIndicator.color = .black
+        activityIndicator.color = UIColor(named: "Green")
+        activityIndicator.style = .large
         activityIndicator.hidesWhenStopped = true
         return activityIndicator
     }()
@@ -51,10 +45,11 @@ class ViewController: UIViewController {
     private lazy var breakPasswordButton: UIButton = {
         let button = UIButton(type: .system)
         button.addTarget(self, action: #selector(breakPassword), for: .touchUpInside)
-        button.backgroundColor = .systemMint
+        button.backgroundColor = UIColor(named: "Green")
         button.layer.cornerRadius = 20
         button.setTitle("Подобрать пароль", for: .normal)
         button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOpacity = 0.3
         button.layer.shadowOffset = .zero
@@ -67,9 +62,10 @@ class ViewController: UIViewController {
     private lazy var stopButton: UIButton = {
         let button = UIButton(type: .system)
         button.addTarget(self, action: #selector(stopBreakPassword), for: .touchUpInside)
-        button.backgroundColor = .systemPink
+        button.backgroundColor = UIColor(named: "Purple")
         button.layer.cornerRadius = 20
         button.setTitle("Остановить подбор", for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
         button.setTitleColor(.black, for: .normal)
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOpacity = 0.3
@@ -84,11 +80,16 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
         setupHierarchy()
         setupLayout()
     }
     
     // MARK: - Setup
+    
+    private func setupView() {
+        view.backgroundColor = UIColor(named: "BackgroundColor")
+    }
     
     private func setupHierarchy() {
         view.addSubview(passwordLabel)
@@ -101,10 +102,10 @@ class ViewController: UIViewController {
     private func setupLayout() {
         
         passwordLabel.snp.makeConstraints { make in
-            make.height.equalTo(40)
-            make.width.equalTo(200)
+            make.height.equalTo(200)
+            make.width.equalTo(180)
             make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview().offset(-150)
+            make.centerY.equalToSuperview().offset(-180)
         }
         
         passwordField.snp.makeConstraints { make in
@@ -116,20 +117,20 @@ class ViewController: UIViewController {
         
         spinner.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview().offset(-50)
+            make.centerY.equalToSuperview().offset(-80)
         }
 
         breakPasswordButton.snp.makeConstraints { make in
             make.height.equalTo(40)
-            make.width.equalTo(150)
-            make.centerX.equalToSuperview().offset(-80)
-            make.centerY.equalTo(passwordField).offset(100)
+            make.width.equalTo(160)
+            make.centerX.equalToSuperview().offset(-100)
+            make.centerY.equalTo(passwordField).offset(150)
         }
         
         stopButton.snp.makeConstraints { make in
             make.height.equalTo(40)
-            make.width.equalTo(150)
-            make.centerX.equalToSuperview().offset(80)
+            make.width.equalTo(160)
+            make.centerX.equalToSuperview().offset(100)
             make.centerY.equalTo(breakPasswordButton)
         }
     }
