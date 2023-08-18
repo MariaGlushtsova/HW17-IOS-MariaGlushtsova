@@ -1,23 +1,23 @@
 //
-//  ViewController.swift
+//  MyView.swift
 //  HW17-IOS-MariaGlushtsova
 //
-//  Created by Admin on 9.08.23.
+//  Created by Admin on 19.08.23.
 //
 
 import UIKit
 import SnapKit
 
-class ViewController: UIViewController {
-
+class MyView: UIView {
+    
     var stopButtonIsTapped = false
     
     var isBlack: Bool = false {
         didSet {
             if isBlack {
-                self.view.backgroundColor = .black
+                self.backgroundColor = .black
             } else {
-                self.view.backgroundColor = UIColor(named: "BackgroundColor")
+                self.backgroundColor = UIColor(named: "BackgroundColor")
             }
         }
     }
@@ -46,7 +46,7 @@ class ViewController: UIViewController {
     
     private lazy var spinner: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView()
-        activityIndicator.center = self.view.center
+        activityIndicator.center = self.center
         activityIndicator.color = UIColor(named: "Green")
         activityIndicator.style = .large
         activityIndicator.hidesWhenStopped = true
@@ -95,11 +95,20 @@ class ViewController: UIViewController {
         button.setTitleColor(UIColor(named: "White"), for: .normal)
         return button
     }()
-
-    // MARK: - Lifecycle
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    //MARK: -> Initial
+    
+    init() {
+        super.init(frame: .zero)
+        commonInit()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
+    
+    private func commonInit() {
         setupView()
         setupHierarchy()
         setupLayout()
@@ -108,16 +117,16 @@ class ViewController: UIViewController {
     // MARK: - Setup
     
     private func setupView() {
-        view.backgroundColor = UIColor(named: "BackgroundColor")
+        backgroundColor = UIColor(named: "BackgroundColor")
     }
     
     private func setupHierarchy() {
-        view.addSubview(passwordLabel)
-        view.addSubview(passwordField)
-        view.addSubview(spinner)
-        view.addSubview(breakPasswordButton)
-        view.addSubview(stopButton)
-        view.addSubview(changeColorButton)
+        addSubview(passwordLabel)
+        addSubview(passwordField)
+        addSubview(spinner)
+        addSubview(breakPasswordButton)
+        addSubview(stopButton)
+        addSubview(changeColorButton)
     }
     
     private func setupLayout() {
@@ -160,9 +169,12 @@ class ViewController: UIViewController {
             make.centerY.equalTo(passwordField).offset(270)
         }
     }
-    
-    // MARK: - Actions
-    
+}
+
+// MARK: - Actions
+
+extension MyView {
+
     @objc private func changeBackgroundColor() {
         isBlack.toggle()
     }
@@ -183,9 +195,9 @@ class ViewController: UIViewController {
     func bruteForce(passwordToUnlock: String) {
         
         let ALLOWED_CHARACTERS:   [String] = String().printable.map { String($0) }
-
+        
         var password: String = ""
-
+        
         DispatchQueue.global(qos: .background).async {
             
             while password != passwordToUnlock {
@@ -193,7 +205,7 @@ class ViewController: UIViewController {
                 DispatchQueue.main.sync {
                     self.passwordLabel.text = password
                 }
-                                
+                
                 if self.stopButtonIsTapped == true {
                     break
                 }
