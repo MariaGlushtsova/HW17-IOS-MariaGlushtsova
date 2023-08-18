@@ -7,23 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		841B5D742A90201500F3857A /* MyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841B5D732A90201500F3857A /* MyView.swift */; };
 		84B957CC2A84074800DA6480 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B957CB2A84074800DA6480 /* AppDelegate.swift */; };
 		84B957CE2A84074800DA6480 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B957CD2A84074800DA6480 /* SceneDelegate.swift */; };
-		84B957D02A84074800DA6480 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B957CF2A84074800DA6480 /* ViewController.swift */; };
+		84B957D02A84074800DA6480 /* MyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B957CF2A84074800DA6480 /* MyController.swift */; };
 		84B957D32A84074800DA6480 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84B957D12A84074800DA6480 /* Main.storyboard */; };
 		84B957D52A84074A00DA6480 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84B957D42A84074A00DA6480 /* Assets.xcassets */; };
 		84B957D82A84074A00DA6480 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84B957D62A84074A00DA6480 /* LaunchScreen.storyboard */; };
+		84B957E42A84288F00DA6480 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 84B957E32A84288F00DA6480 /* SnapKit */; };
+		84B957E62A8435A300DA6480 /* String + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B957E52A8435A300DA6480 /* String + Ext.swift */; };
+		84DB35342A86E19700133497 /* GenerateBruteForce function.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB35332A86E19700133497 /* GenerateBruteForce function.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		841B5D732A90201500F3857A /* MyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyView.swift; sourceTree = "<group>"; };
 		84B957C82A84074800DA6480 /* HW17-IOS-MariaGlushtsova.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HW17-IOS-MariaGlushtsova.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B957CB2A84074800DA6480 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84B957CD2A84074800DA6480 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		84B957CF2A84074800DA6480 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		84B957CF2A84074800DA6480 /* MyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyController.swift; sourceTree = "<group>"; };
 		84B957D22A84074800DA6480 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		84B957D42A84074A00DA6480 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84B957D72A84074A00DA6480 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84B957D92A84074A00DA6480 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84B957E52A8435A300DA6480 /* String + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Ext.swift"; sourceTree = "<group>"; };
+		84DB35332A86E19700133497 /* GenerateBruteForce function.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GenerateBruteForce function.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,12 +38,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84B957E42A84288F00DA6480 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		841B5D712A901FBA00F3857A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				84B957CF2A84074800DA6480 /* MyController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		841B5D722A901FC500F3857A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				841B5D732A90201500F3857A /* MyView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		84B957BF2A84074700DA6480 = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +82,7 @@
 			children = (
 				84B957E12A8407B800DA6480 /* Sources */,
 				84B957E02A8407A000DA6480 /* Resources */,
+				84B957E72A8435AC00DA6480 /* Extensions */,
 			);
 			path = "HW17-IOS-MariaGlushtsova";
 			sourceTree = "<group>";
@@ -85,10 +110,20 @@
 		84B957E12A8407B800DA6480 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				841B5D722A901FC500F3857A /* View */,
+				841B5D712A901FBA00F3857A /* Controller */,
 				84B957DF2A84078600DA6480 /* App */,
-				84B957CF2A84074800DA6480 /* ViewController.swift */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		84B957E72A8435AC00DA6480 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				84B957E52A8435A300DA6480 /* String + Ext.swift */,
+				84DB35332A86E19700133497 /* GenerateBruteForce function.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -107,6 +142,9 @@
 			dependencies = (
 			);
 			name = "HW17-IOS-MariaGlushtsova";
+			packageProductDependencies = (
+				84B957E32A84288F00DA6480 /* SnapKit */,
+			);
 			productName = "HW17-IOS-MariaGlushtsova";
 			productReference = 84B957C82A84074800DA6480 /* HW17-IOS-MariaGlushtsova.app */;
 			productType = "com.apple.product-type.application";
@@ -135,6 +173,9 @@
 				Base,
 			);
 			mainGroup = 84B957BF2A84074700DA6480;
+			packageReferences = (
+				84B957E22A84288F00DA6480 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 84B957C92A84074800DA6480 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -162,9 +203,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84B957D02A84074800DA6480 /* ViewController.swift in Sources */,
+				841B5D742A90201500F3857A /* MyView.swift in Sources */,
+				84B957D02A84074800DA6480 /* MyController.swift in Sources */,
 				84B957CC2A84074800DA6480 /* AppDelegate.swift in Sources */,
+				84DB35342A86E19700133497 /* GenerateBruteForce function.swift in Sources */,
 				84B957CE2A84074800DA6480 /* SceneDelegate.swift in Sources */,
+				84B957E62A8435A300DA6480 /* String + Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,6 +426,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		84B957E22A84288F00DA6480 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		84B957E32A84288F00DA6480 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 84B957E22A84288F00DA6480 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 84B957C02A84074700DA6480 /* Project object */;
 }
