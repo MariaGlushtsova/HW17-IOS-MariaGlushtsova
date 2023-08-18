@@ -12,6 +12,16 @@ class ViewController: UIViewController {
 
     var stopButtonIsTapped = false
     
+    var isBlack: Bool = false {
+        didSet {
+            if isBlack {
+                self.view.backgroundColor = .black
+            } else {
+                self.view.backgroundColor = UIColor(named: "BackgroundColor")
+            }
+        }
+    }
+    
     // MARK: - Outlets
     
     private lazy var passwordLabel: UILabel = {
@@ -27,6 +37,7 @@ class ViewController: UIViewController {
     private lazy var passwordField: UITextField = {
         let textField = UITextField()
         textField.isSecureTextEntry = true
+        textField.textColor = UIColor(named: "White")
         textField.font = UIFont.boldSystemFont(ofSize: 25)
         textField.textAlignment = .center
         textField.placeholder = "Create password"
@@ -50,10 +61,10 @@ class ViewController: UIViewController {
         button.setTitle("Подобрать пароль", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
-        button.layer.shadowColor = UIColor.black.cgColor
-        button.layer.shadowOpacity = 0.3
+        button.layer.shadowColor = UIColor(named: "White")?.cgColor
+        button.layer.shadowOpacity = 2.5
         button.layer.shadowOffset = .zero
-        button.layer.shadowRadius = 10
+        button.layer.shadowRadius = 15
         button.layer.shouldRasterize = true
         button.layer.rasterizationScale = UIScreen.main.scale
         return button
@@ -67,12 +78,21 @@ class ViewController: UIViewController {
         button.setTitle("Остановить подбор", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
         button.setTitleColor(.black, for: .normal)
-        button.layer.shadowColor = UIColor.black.cgColor
-        button.layer.shadowOpacity = 0.3
+        button.layer.shadowColor = UIColor(named: "White")?.cgColor
+        button.layer.shadowOpacity = 2.5
         button.layer.shadowOffset = .zero
-        button.layer.shadowRadius = 10
+        button.layer.shadowRadius = 15
         button.layer.shouldRasterize = true
         button.layer.rasterizationScale = UIScreen.main.scale
+        return button
+    }()
+    
+    private lazy var changeColorButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.addTarget(self, action: #selector(changeBackgroundColor), for: .touchUpInside)
+        button.setTitle("Поменять цвет View", for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        button.setTitleColor(UIColor(named: "White"), for: .normal)
         return button
     }()
 
@@ -97,6 +117,7 @@ class ViewController: UIViewController {
         view.addSubview(spinner)
         view.addSubview(breakPasswordButton)
         view.addSubview(stopButton)
+        view.addSubview(changeColorButton)
     }
     
     private func setupLayout() {
@@ -133,9 +154,18 @@ class ViewController: UIViewController {
             make.centerX.equalToSuperview().offset(100)
             make.centerY.equalTo(breakPasswordButton)
         }
+        
+        changeColorButton.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalTo(passwordField).offset(270)
+        }
     }
     
     // MARK: - Actions
+    
+    @objc private func changeBackgroundColor() {
+        isBlack.toggle()
+    }
     
     @objc private func breakPassword() {
         stopButtonIsTapped = false
@@ -170,13 +200,13 @@ class ViewController: UIViewController {
             }
             
             if self.stopButtonIsTapped == false {
-                DispatchQueue.main.sync {
+                DispatchQueue.main.async {
                     self.passwordLabel.text = "Пароль \(password) взломан"
                     self.passwordField.isSecureTextEntry = false
                     self.spinner.stopAnimating()
                 }
             } else {
-                DispatchQueue.main.sync {
+                DispatchQueue.main.async {
                     self.passwordLabel.text = "Пароль не взломан"
                     self.spinner.stopAnimating()
                 }
